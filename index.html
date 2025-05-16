@@ -16,12 +16,13 @@
                         'theme-primary': '#004777', // Azul Profundo Acadêmico
                         'theme-primary-darker': '#003355', // Azul mais escuro para hover
                         'theme-secondary': '#F0EAD6', // Bege Claro (mantido para o fundo do body)
-                        'theme-accent': '#0A9396', // Teal Vibrante (para Visitar Site)
-                        'theme-accent-darker': '#097D80', // Teal mais escuro para hover
+                        'theme-accent': '#0A9396', // Teal Vibrante (para Visitar Site - mantido oculto)
+                        'theme-accent-darker': '#097D80', // Teal mais escuro para hover (mantido oculto)
 
                         // Cores específicas para botões com a nova paleta
-                        'whatsapp-btn': '#25D366', // Verde padrão do WhatsApp (mantido)
-                        'whatsapp-btn-darker': '#128C7E', // Tom de teal/verde mais escuro para hover (mantido)
+                        // Adicionado um verde mais vibrante para o WhatsApp
+                        'whatsapp-btn': '#25D366', // Verde padrão do WhatsApp
+                        'whatsapp-btn-darker': '#1DA851', // Verde mais escuro para hover
                         'chat-btn': '#4682B4', // Azul Médio Profissional (Steel Blue)
                         'chat-btn-darker': '#3A6B8A', // Azul mais escuro para hover
                         'instagram-btn': '#A66C8F', // Roxo/Ameixa Sóbrio (BlueViolet)
@@ -33,13 +34,15 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'], // Fonte principal Inter
+                        // Exemplo de adição de uma segunda fonte para títulos (opcional)
+                        // heading: ['Montserrat', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Estilos personalizados para o corpo e contêiner */
         body {
@@ -58,8 +61,8 @@
             text-align: center;
             background-color: white; /* Fundo branco para o contêiner principal */
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            border-radius: 15px; /* Cantos mais arredondados */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra mais proeminente */
             position: relative; /* Necessário para o posicionamento absoluto do chatbot */
             z-index: 1; /* Garante que o linktree fique abaixo do chatbot quando aberto */
         }
@@ -68,20 +71,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #004777; /* Cor primária padrão (Azul Profundo) */
+            /* Removida a cor de fundo padrão aqui para usar as classes Tailwind */
             color: white;
             font-weight: 600;
             padding: 15px 20px;
             margin-bottom: 15px;
-            border-radius: 10px;
+            border-radius: 10px; /* Cantos arredondados para botões */
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease; /* Adiciona transição para sombra */
+            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             width: 100%; /* Garante que o botão ocupe a largura total do contêiner */
             font-size: 1rem; /* Tamanho de fonte padrão para telas maiores */
+            border: none; /* Remove bordas padrão */
+            cursor: pointer; /* Indica que é clicável */
         }
         .link-button:hover {
-            background-color: #003355; /* Cor primária mais escura no hover */
             transform: translateY(-2px); /* Efeito de levantar */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra maior no hover */
         }
@@ -103,26 +107,43 @@
             }
         }
 
+        /* Aplicação de gradientes sutis nos botões usando classes Tailwind */
+        /* Exemplo: bg-gradient-to-r from-green-400 to-green-600 */
+        .whatsapp-gradient {
+             background: linear-gradient(to right, #25D366, #1DA851);
+        }
+         .whatsapp-gradient:hover {
+             background: linear-gradient(to right, #1DA851, #25D366); /* Inverte o gradiente no hover */
+         }
 
-        /* Sobrescreve estilos de cor para botões específicos usando classes do Tailwind */
-        /* A cor padrão do .link-button será sobrescrita por essas classes */
-        .bg-whatsapp-btn { background-color: #25D366; }
-        .hover\:bg-whatsapp-btn-darker:hover { background-color: #128C7E; }
+         .chat-gradient {
+             background: linear-gradient(to right, #4682B4, #3A6B8A);
+         }
+         .chat-gradient:hover {
+             background: linear-gradient(to right, #3A6B8A, #4682B4);
+         }
 
-        .bg-chat-btn { background-color: #4682B4; }
-        .hover\:bg-chat-btn-darker:hover { background-color: #3A6B8A; }
+         .instagram-gradient {
+             background: linear-gradient(to right, #A66C8F, #945B7E);
+         }
+         .instagram-gradient:hover {
+             background: linear-gradient(to right, #945B7E, #A66C8F);
+         }
 
-        .bg-instagram-btn { background-color: #A66C8F; }
-        .hover\:bg-instagram-btn-darker:hover { background-color: #945B7E; }
+         .email-gradient {
+             background: linear-gradient(to right, #4F4F4F, #333333);
+         }
+         .email-gradient:hover {
+             background: linear-gradient(to right, #333333, #4F4F4F);
+         }
 
-        .bg-email-btn { background-color: #4F4F4F; }
-        .hover\:bg-email-btn-darker:hover { background-color: #333333; }
+         .research-gradient {
+             background: linear-gradient(to right, #1E3A8A, #152A60);
+         }
+         .research-gradient:hover {
+             background: linear-gradient(to right, #152A60, #1E3A8A);
+         }
 
-        .bg-research-btn { background-color: #1E3A8A; }
-        .hover\:bg-research-btn-darker:hover { background-color: #152A60; }
-
-        .bg-theme-accent { background-color: #0A9396; }
-        .hover\:bg-theme-accent-darker:hover { background-color: #097D80; }
 
         /* Estilos para o Chatbot Modal */
         .chatbot-modal-overlay {
@@ -131,7 +152,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+            background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente mais escuro */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -269,29 +290,32 @@
 
         <h1 class="text-2xl font-bold text-gray-800 mb-1">Dra. Giovanna Paiva</h1>
         <p class="text-gray-600 mb-1">Médica Veterinária | Acupuntura | Pesquisa</p>
-        <p class="text-gray-600 text-sm mb-4">CRMV-PB 03333</p> <p class="text-gray-700 text-sm mb-8"> Médica Veterinária com paixão por integrar a ciência e o bem-estar animal. Especialista em Acupuntura Veterinária, dedica-se à pesquisa e à prática clínica, buscando abordagens inovadoras para promover a saúde e a qualidade de vida dos pets.
+        <p class="text-gray-600 text-sm mb-4">CRMV-PB 03333</p>
+
+        <p class="text-gray-700 text-sm mb-8">
+            Médica Veterinária e mestranda na UFPB, com foco de pesquisa em cannabis medicinal voltadas ao bem-estar animal, e atuação nas áreas de saúde animal e acupuntura.
         </p>
-        <a href="https://wa.me/5581999513952" target="_blank" class="link-button bg-whatsapp-btn hover:bg-whatsapp-btn-darker">
-            <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+        <a href="https://wa.me/5581999513952" target="_blank" class="link-button whatsapp-gradient">
+            <i class="fab fa-whatsapp"></i> Contato via WhatsApp
         </a>
 
-        <a href="#" id="open-chatbot-btn" class="link-button bg-chat-btn hover:bg-chat-btn-darker">
+        <a href="#" id="open-chatbot-btn" class="link-button chat-gradient">
             <i class="far fa-calendar-alt"></i> Pesquisas e Serviços
         </a>
 
-        <a href="https://instagram.com/giovannavet" target="_blank" class="link-button bg-instagram-btn hover:bg-instagram-btn-darker">
+        <a href="https://instagram.com/giovannavet" target="_blank" class="link-button instagram-gradient">
             <i class="fab fa-instagram"></i> Instagram
         </a>
 
-        <a href="mailto:giovannapaiva.vet@gmail.com" class="link-button bg-email-btn hover:bg-email-btn-darker">
+        <a href="mailto:giovannapaiva.vet@gmail.com" class="link-button email-gradient">
             <i class="far fa-envelope"></i> Enviar Email
         </a>
 
-        <a href="http://lattes.cnpq.br/8429123900771171" target="_blank" class="link-button bg-research-btn hover:bg-research-btn-darker">
+        <a href="http://lattes.cnpq.br/8429123900771171" target="_blank" class="link-button research-gradient">
             <i class="fas fa-graduation-cap"></i> Acesso Plataforma Lattes
         </a>
 
-        <a href="https://sites.google.com/view/giovannapaivavet/p%C3%A1gina-inicial" target="_blank" class="link-button bg-theme-accent hover:bg-theme-accent-darker">
+        <a href="https://sites.google.com/view/giovannapaivavet/p%C3%A1gina-inicial" target="_blank" class="link-button bg-theme-accent hover:bg-theme-accent-darker hidden">
              <i class="fas fa-globe"></i> Visitar Site
          </a>
 
@@ -326,52 +350,70 @@
                     questions: [
                         {
                             q: "O que é Acupuntura Veterinária?",
-                            a: "A Acupuntura Veterinária é uma técnica da Medicina Tradicional Chinesa que utiliza agulhas finas, calor ou pressão em pontos específicos do corpo do animal para promover a cura e o bem-estar. Ela busca reequilibrar a energia do corpo e estimular processos naturais de cura."
+                            a: "A acupuntura veterinária é uma técnica milenar que utiliza a estimulação de pontos específicos do corpo com agulhas finas para restaurar e manter a saúde do animal. Visa equilibrar a energia vital (Qi) através dos meridianos, promovendo a recuperação natural."
                         },
                          {
                             q: "Como funciona a acupuntura em animais?",
-                            a: "A acupuntura estimula pontos que possuem alta concentração de terminações nervosas, vasos sanguíneos e mastócitos. Essa estimulação envia sinais ao sistema nervoso central, liberando neurotransmissores e neuro-hormônios que promovem alívio da dor, relaxamento muscular, melhora da circulação e modulação do sistema imunológico."
+                            a: "A técnica funciona através da estimulação de acupontos, que são pontos específicos nos meridianos (canais por onde a energia vital circula no corpo). Essa estimulação, geralmente feita com agulhas finas, busca afetar a energia vital e promover o reequilíbrio do organismo."
                         },
                          {
                             q: "Quais os princípios por trás do tratamento?",
-                            a: "Baseia-se na teoria do Qi (energia vital) que flui pelo corpo através de canais (meridianos). Doenças ocorrem quando o fluxo de Qi é bloqueado ou desequilibrado. A acupuntura desbloqueia e regula esse fluxo, restaurando a saúde."
+                            a: "Baseia-se na teoria da Medicina Tradicional Chinesa, que considera a saúde como um estado de equilíbrio da energia vital (Qi) que flui pelos meridianos. Doenças ocorrem quando há bloqueios ou desequilíbrios nesse fluxo. A acupuntura visa desbloquear e regular o Qi."
                         },
                         {
                             q: "Quais problemas de saúde podem ser tratados com acupuntura?",
-                            a: "É eficaz para uma ampla gama de condições, incluindo dor crônica (artrite, problemas de coluna), paralisias, problemas neurológicos (sequelas de cinomose), distúrbios gastrointestinais, respiratórios, dermatológicos e até mesmo ansiedade e problemas comportamentais."
+                            a: "A acupuntura veterinária pode ser utilizada para tratar diversas condições, incluindo: Doenças musculoesqueléticas (artroses, dores na coluna, etc.), Problemas de sistema nervoso (paralisias, AVCs, etc.), Doenças gastrointestinais (gastrites, etc.), Dermatites, diabetes, hipotireoidismo, problemas de fertilidade, entre outros."
                         },
                         {
-                            q: "Ajuda na recuperação pós-cirúrgica?",
-                            a: "Sim, a acupuntura pode ser um excelente complemento no pós-operatório, ajudando a reduzir a dor, inflamação e acelerar a recuperação motora e funcional."
+                            q: "Quais os benefícios da acupuntura para pets?",
+                            a: "Os benefícios incluem o tratamento de diversas doenças (como tratamento principal ou complementar), redução da dor (especialmente em condições musculoesqueléticas), melhora da qualidade de vida (em casos crônicos), pouca ou nenhuma dor durante a aplicação, ser uma técnica pouco invasiva com poucos riscos, auxiliar na recuperação (pós-cirúrgica ou quimioterapia) e até mesmo na prevenção de doenças e melhora da saúde geral."
                         },
                         {
-                            q: "Pode ser usada em conjunto com outros tratamentos?",
-                            a: "Absolutamente. A acupuntura é uma terapia integrativa e pode ser usada em conjunto com a medicina veterinária convencional (medicamentos, cirurgia) e outras terapias como a fisioterapia, potencializando os resultados."
+                            q: "Existem contraindicações para a acupuntura em animais?",
+                            a: "A acupuntura não é recomendada em alguns casos, como animais com doenças cardíacas graves (podem ser necessários cuidados especiais), durante a gravidez (pode ter efeitos adversos) e em algumas doenças infecciosas (é preciso avaliar caso a caso). É fundamental que a avaliação seja feita por um veterinário qualificado."
                         },
                         {
-                            q: "O animal sente dor durante as sessões?",
-                            a: "Geralmente não. As agulhas são muito finas e a maioria dos animais relaxa durante o tratamento. Alguns podem sentir um leve desconforto inicial em pontos mais sensíveis ou doloridos, mas é passageiro e leva ao relaxamento."
+                            q: "Quem pode realizar a acupuntura veterinária?",
+                            a: "A acupuntura veterinária deve ser realizada exclusivamente por um médico-veterinário com formação específica e habilitação nesta área. É uma técnica que exige conhecimento aprofundado da anatomia, fisiologia e dos princípios da Medicina Tradicional Chinesa aplicada a animais."
+                        },
+                        {
+                            q: "A acupuntura substitui outros tratamentos?",
+                            a: "Não necessariamente. A acupuntura é uma ferramenta terapêutica que pode ser usada como tratamento principal ou, frequentemente, de forma complementar a outros tratamentos convencionais (medicamentos, fisioterapia, etc.), potencializando os resultados e promovendo o bem-estar animal."
+                        }
+                    ]
+                },
+                 {
+                    title: "Sobre Cannabinoides Medicinais", // Título do tópico ajustado
+                    icon: "fas fa-leaf", // Ícone de folha (sugestão para cannabis/plantas)
+                    questions: [
+                        {
+                            q: "O que são Cannabinoides Medicinais na Medicina Veterinária?",
+                            a: "Cannabinoides medicinais referem-se a compostos derivados da planta Cannabis, como o Canabidiol (CBD) e o Tetraidrocanabinol (THC), utilizados para fins terapêuticos em animais sob supervisão veterinária. No Brasil, a Anvisa já aprovou o uso de alguns produtos à base de cannabis em tratamentos de animais." // Adequado ao texto fornecido
+                        },
+                        {
+                            q: "A Dra. Giovanna pesquisa o uso de Cannabinoides Medicinais em animais?",
+                            a: "Sim, a Dra. Giovanna Paiva tem foco de pesquisa em cannabinoides medicinais voltadas ao bem-estar animal, explorando seu potencial terapêutico para diversas condições."
+                        },
+                        {
+                            q: "Para quais condições os Canabinoides Medicinais podem ser utilizados em pets?",
+                            a: "A pesquisa e a prática clínica indicam potencial uso dos cannabinoides medicinais para condições como: Alívio da dor crônica e inflamatória (ex: osteoartrite), controle de convulsões e outros distúrbios neurológicos, tratamento de alergias, doenças oncológicas, distúrbios de sono, problemas de apetite e náuseas, entre outros problemas de saúde em animais. Veterinários podem prescrever medicamentos registrados pela Anvisa, utilizando substâncias canabinoides para diversas doenças." // Adequado ao texto fornecido
+                        },
+                        {
+                            q: "Como a pesquisa com Cannabinoides Medicinais em animais está evoluindo?",
+                            a: "A comunidade veterinária está cada vez mais interessada em estudar e pesquisar o uso da cannabis medicinal em animais, buscando identificar novas aplicações e otimizar os tratamentos. A cannabis medicinal em animais ainda é um campo em desenvolvimento, com pesquisas em andamento para identificar as melhores aplicações e os efeitos colaterais." // Adequado ao texto fornecido
+                        },
+                        {
+                            q: "O uso de Canabinoides Medicinais em animais é seguro e regulamentado?",
+                            a: "Quando utilizados sob supervisão e prescrição de um médico veterinário habilitado, seguindo as regulamentações da Anvisa, os cannabinoides medicinais podem ser seguros. A Anvisa aprova o uso de produtos à base de cannabis em tratamentos de animais, e veterinários podem prescrever medicamentos registrados. É fundamental que o tratamento seja sempre acompanhado por um profissional qualificado para garantir a escolha do produto adequado e a dosagem correta." // Combinado e adequado ao texto fornecido
+                        },
+                        {
+                            q: "Onde posso encontrar mais informações sobre essas pesquisas?",
+                            a: "Informações detalhadas sobre as pesquisas são geralmente divulgadas em publicações científicas, congressos e no Currículo Lattes da Dra. Giovanna. É importante ressaltar que o uso terapêutico dessas substâncias em animais deve ser sempre orientado por um veterinário."
                         },
                          {
-                            q: "É um tratamento seguro? Existem efeitos colaterais?",
-                            a: "Quando realizada por um veterinário qualificado, a acupuntura é muito segura e possui poucos efeitos colaterais, geralmente leves e temporários (como sonolência ou leve sensibilidade no ponto)."
-                        },
-                        {
-                            q: "Todos os animais podem fazer acupuntura? Existe alguma contraindicação?",
-                            a: "A maioria dos animais pode se beneficiar da acupuntura, incluindo cães, gatos, cavalos, etc. Não há contraindicações absolutas, mas a avaliação individual pelo veterinário é essencial para determinar se é o tratamento mais adequado."
-                        },
-                        {
-                            q: "Quanto tempo dura uma sessão?",
-                            a: "Uma sessão típica dura entre 20 a 40 minutos, dependendo do animal e da condição a ser tratada."
-                        },
-                        {
-                            q: "Quantas sessões são geralmente necessárias?",
-                            a: "O número de sessões varia muito dependendo da condição (aguda ou crônica) e da resposta individual do animal. Condições agudas podem melhorar em poucas sessões, enquanto condições crônicas podem exigir tratamentos mais frequentes no início e depois sessões de manutenção."
-                        },
-                        {
-                            q: "Como saber se o tratamento está funcionando?",
-                            a: "Os sinais de melhora podem incluir redução da dor, aumento da mobilidade, melhora do apetite, mais disposição, diminuição da ansiedade, entre outros. A resposta é individual e observada ao longo das sessões."
-                        },
+                            q: "Como os Canabinoides Medicinais se relacionam com o bem-estar animal?",
+                            a: "Os cannabinoides medicinais, ao auxiliar no manejo da dor, inflamação, ansiedade e outras condições que afetam a qualidade de vida dos animais, contribuem diretamente para a melhoria do seu conforto físico e mental, promovendo seu bem-estar geral. A regulamentação abre espaço para que produtos à base de cannabis sejam utilizados em animais, com o objetivo de aliviar sintomas e melhorar a qualidade de vida dos pacientes." // Adequado ao texto fornecido
+                        }
                     ]
                 },
                 {
@@ -380,7 +422,7 @@
                     questions: [
                         {
                             q: "Qual a área de pesquisa da Dra. Giovanna?",
-                            a: "A Dra. Giovanna Paiva é pesquisadora na Universidade Federal da Paraíba (UFPB), com foco em áreas que integram a medicina veterinária, acupuntura e novas abordagens terapêuticas, incluindo pesquisas com substâncias como cannabis e psicodélicos no contexto da saúde animal."
+                            a: "A Dra. Giovanna Paiva é pesquisadora na Universidade Federal da Paraíba (UFPB), com foco em áreas que integram a medicina veterinária, acupuntura e novas abordagens terapêuticas, incluindo pesquisas com substâncias como canabinoides e psicodélicos no contexto da saúde animal."
                         },
                         {
                             q: "O que é pesquisa em Medicina Veterinária?",
@@ -404,39 +446,13 @@
                         },
                     ]
                 },
-                 {
-                    title: "Pesquisa com Cannabis e Psicodélicos",
-                    icon: "fas fa-leaf", // Ícone de folha (sugestão para cannabis/plantas)
-                    questions: [
-                        {
-                            q: "A Dra. Giovanna pesquisa o uso de cannabis/psicodélicos em animais?",
-                            a: "Sim, a Dra. Giovanna Paiva está envolvida em pesquisas pioneiras que exploram o potencial terapêutico de compostos como canabinoides e psicodélicos no tratamento de diversas condições em animais, especialmente aquelas relacionadas à saúde mental e neurológica."
-                        },
-                        {
-                            q: "Para quais condições esses estudos buscam tratamento?",
-                            a: "Os estudos buscam entender o potencial desses compostos no tratamento de condições como ansiedade, depressão, dor crônica, epilepsia e outros distúrbios neurológicos e comportamentais em animais."
-                        },
-                        {
-                            q: "Qual a evolução dessa pesquisa e o que se espera dos resultados?",
-                            a: "A pesquisa nessa área está em constante evolução. Estudos preliminares em humanos e animais sugerem que, em alguns casos, intervenções com psicodélicos, por exemplo, podem ter efeitos terapêuticos significativos e duradouros com poucas doses, ao contrário de tratamentos contínuos. A pesquisa busca validar esses achados, entender os mecanismos de ação e determinar a segurança e eficácia para uso veterinário."
-                        },
-                        {
-                            q: "Como funciona a pesquisa nessa área? É seguro para os animais envolvidos?",
-                            a: "A pesquisa é realizada seguindo rigorosos protocolos éticos e científicos, aprovados por comitês de ética no uso de animais. A segurança e o bem-estar dos animais são prioridade máxima. As substâncias são administradas em ambientes controlados e sob supervisão veterinária constante para monitorar qualquer efeito."
-                        },
-                        {
-                            q: "Onde posso encontrar mais informações sobre essas pesquisas?",
-                            a: "Informações detalhadas sobre as pesquisas são geralmente divulgadas em publicações científicas, congressos e no Currículo Lattes da Dra. Giovanna. É importante ressaltar que o uso terapêutico dessas substâncias em animais ainda está sob investigação e regulamentação."
-                        },
-                    ]
-                },
                 {
                     title: "Sobre Consultas e Serviços Gerais",
                     icon: "fas fa-stethoscope", // Ícone de estetoscópio
                     questions: [
                         {
                             q: "Como faço para agendar uma consulta?",
-                            a: "Você pode agendar uma consulta entrando em contato via WhatsApp (link no botão acima) ou utilizando o Chat (botão acima) para falar com a equipe e verificar a disponibilidade. Você também pode encontrar informações e agendar pelo <a href='https://sites.google.com/view/giovannapaivavet/p%C3%A1gina-inicial' target='_blank' class='text-blue-600 hover:underline'>Site Oficial</a>." // Link para o site adicionado aqui
+                            a: "Você pode agendar uma consulta entrando em contato via WhatsApp (link no botão acima) ou utilizando o Chat (botão acima) para falar com a equipe e verificar a disponibilidade. Você também pode encontrar informações e agendar pelo <a href='https://sites.google.com/view/giovannapaivavet/p%C3%Agina-inicial' target='_blank' class='text-blue-600 hover:underline'>Site Oficial</a>." // Link para o site adicionado aqui
                         },
                         {
                             q: "Quais os horários de atendimento?",
@@ -493,7 +509,7 @@
                         },
                         {
                             q: "Como cuidar da higiene do meu pet (banho, dentes)?",
-                            a: "A frequência de banhos varia conforme a raça, tipo de pelo e estilo de vida. Banhos em excesso podem remover a proteção natural da pele. A higiene oral é crucial para prevenir doenças dentárias; a escovação regular com produtos específicos para pets é recomendada. O veterinário pode orientar sobre a melhor rotina de higiene para o seu animal."
+                            a: "A frequência de banhos varia conforme a raça, tipo de pelo e estilo de vida. Banhos em excesso podem remover a proteção natural da pele. A higiene oral é crucial para prevenir doenças dentárias; a escovação regular com produtos específicos para pets é recomendada. O veterinário pode orientar sobre o melhor rotina de higiene para o seu animal."
                         },
                         {
                             q: "Quais os sinais de uma emergência veterinária?",
@@ -503,6 +519,11 @@
                 }
             ]
         };
+
+        // Reordenar os tópicos: Mover "Sobre Cannabinoides Medicinais" (índice 2 na lista original) para a posição 1.
+        const cannabinoidTopic = chatbotData.topics.splice(2, 1)[0]; // Remove o tópico e o armazena
+        chatbotData.topics.splice(1, 0, cannabinoidTopic); // Insere o tópico na posição 1
+
 
         const openChatbotBtn = document.getElementById('open-chatbot-btn');
         const chatbotModalOverlay = document.getElementById('chatbot-modal-overlay');
@@ -615,3 +636,4 @@
     </script>
 </body>
 </html>
+
