@@ -12,12 +12,12 @@
             theme: {
                 extend: {
                     colors: {
-                        // Cores da nova paleta com foco científico e elegância
+                        // Cores da paleta consistente e refinada
                         'theme-primary': '#004777', // Azul Profundo Acadêmico
                         'theme-primary-darker': '#003355', // Azul mais escuro para hover
                         'theme-secondary': '#F0EAD6', // Bege Claro (mantido para o fundo do body)
-                        'theme-accent': '#0A9396', // Teal Vibrante (para Visitar Site - mantido oculto)
-                        'theme-accent-darker': '#097D80', // Teal mais escuro para hover (mantido oculto)
+                        'theme-accent': '#0A9396', // Teal Vibrante (para Visitar Site)
+                        'theme-accent-darker': '#097D80', // Teal mais escuro para hover
 
                         // Cores específicas para botões com a nova paleta
                         // Adicionado um verde mais vibrante para o WhatsApp
@@ -29,11 +29,14 @@
                         'instagram-btn-darker': '#945B7E', // Roxo/Ameixa mais escuro para hover
                         'email-btn': '#4F4F4F', // Cinza Escuro Profissional
                         'email-btn-darker': '#333333', // Cinza mais escuro para hover
-                        'research-btn': '#1E3A8A', // Azul Marinho Profundo (para Sobre pesquisas)
+                        'research-btn': '#1E3A8A', // Azul Marinho Profundo (para Sobre pesquisas - Lattes)
                         'research-btn-darker': '#152A60', // Azul Marinho mais escuro para hover
+                        // Cor para o botão da página de pesquisas (agora linka para o site completo)
+                        'research-page-btn': '#005F73', // Azul Petróleo
+                        'research-page-btn-darker': '#003F5C', // Azul Petróleo mais escuro
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'], // Fonte principal Inter
+                        sans: ['Inter', 'Inter', 'sans-serif'], // Fonte principal Inter
                         // Exemplo de adição de uma segunda fonte para títulos (opcional)
                         // heading: ['Montserrat', 'sans-serif'],
                     }
@@ -54,6 +57,8 @@
             padding: 20px; /* Adiciona padding para telas menores */
             box-sizing: border-box; /* Inclui padding na largura total */
             font-family: 'Inter', sans-serif; /* Aplica a fonte Inter ao corpo */
+            color: #333; /* Cor de texto padrão */
+            line-height: 1.6;
         }
         .linktree-container {
             width: 100%;
@@ -66,12 +71,11 @@
             position: relative; /* Necessário para o posicionamento absoluto do chatbot */
             z-index: 1; /* Garante que o linktree fique abaixo do chatbot quando aberto */
         }
-        /* Estilos para os botões de link - baseados na cor primária por padrão */
+        /* Estilos para os botões de link */
         .link-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Removida a cor de fundo padrão aqui para usar as classes Tailwind */
             color: white;
             font-weight: 600;
             padding: 15px 20px;
@@ -93,22 +97,7 @@
             margin-right: 10px; /* Espaço entre o ícone e o texto */
         }
 
-        /* Media Query para telas menores (ajuste conforme necessário) */
-        @media (max-width: 600px) {
-            .linktree-container {
-                padding: 20px; /* Ajusta padding para telas menores */
-            }
-            .link-button {
-                font-size: 0.9rem; /* Diminui o tamanho da fonte em telas menores */
-                padding: 12px 15px; /* Ajusta o padding para acomodar a fonte menor */
-            }
-             .link-button i {
-                margin-right: 8px; /* Reduz o espaço do ícone em telas menores */
-            }
-        }
-
-        /* Aplicação de gradientes sutis nos botões usando classes Tailwind */
-        /* Exemplo: bg-gradient-to-r from-green-400 to-green-600 */
+        /* Aplicação de gradientes sutis nos botões */
         .whatsapp-gradient {
              background: linear-gradient(to right, #25D366, #1DA851);
         }
@@ -137,12 +126,28 @@
              background: linear-gradient(to right, #333333, #4F4F4F);
          }
 
-         .research-gradient {
+         .research-gradient { /* Gradiente para o botão Lattes */
              background: linear-gradient(to right, #1E3A8A, #152A60);
          }
          .research-gradient:hover {
              background: linear-gradient(to right, #152A60, #1E3A8A);
          }
+
+         /* Gradiente para o botão da página de pesquisas (agora linka para o site completo) */
+         .research-page-gradient {
+             background: linear-gradient(to right, #005F73, #003F5C);
+         }
+          .research-page-gradient:hover {
+              background: linear-gradient(to right, #003F5C, #005F73);
+          }
+
+         /* Gradiente para o botão Visitar Site Completo */
+         .visit-site-gradient {
+              background: linear-gradient(to right, #0A9396, #097D80); /* Teal Vibrante */
+         }
+          .visit-site-gradient:hover {
+               background: linear-gradient(to right, #097D80, #0A9396); /* Inverte no hover */
+          }
 
 
         /* Estilos para o Chatbot Modal */
@@ -281,6 +286,20 @@
             display: none;
         }
 
+         /* Media Query para telas menores (ajuste conforme necessário) */
+        @media (max-width: 600px) {
+            .linktree-container {
+                padding: 20px; /* Ajusta padding para telas menores */
+            }
+            .link-button {
+                font-size: 0.9rem; /* Diminui o tamanho da fonte em telas menores */
+                padding: 12px 15px; /* Ajusta o padding para acomodar a fonte menor */
+            }
+             .link-button i {
+                margin-right: 8px; /* Reduz o espaço do ícone em telas menores */
+            }
+        }
+
     </style>
 </head>
 <body class="font-sans">
@@ -299,8 +318,17 @@
             <i class="fab fa-whatsapp"></i> Contato via WhatsApp
         </a>
 
+        <a href="[URL_DO_NOVO_SITE]" target="_blank" class="link-button visit-site-gradient">
+             <i class="fas fa-globe"></i> Visitar Site Completo
+         </a>
+
+        <a href="[URL_DO_NOVO_SITE]/giovanna_research_page_02.html" target="_blank" class="link-button research-page-gradient">
+             <i class="fas fa-flask"></i> Sobre Minhas Pesquisas
+         </a>
+
+
         <a href="#" id="open-chatbot-btn" class="link-button chat-gradient">
-            <i class="far fa-calendar-alt"></i> Pesquisas e Serviços
+            <i class="far fa-calendar-alt"></i> Perguntas Frequentes
         </a>
 
         <a href="https://instagram.com/giovannavet" target="_blank" class="link-button instagram-gradient">
@@ -314,10 +342,6 @@
         <a href="http://lattes.cnpq.br/8429123900771171" target="_blank" class="link-button research-gradient">
             <i class="fas fa-graduation-cap"></i> Acesso Plataforma Lattes
         </a>
-
-        <a href="https://sites.google.com/view/giovannapaivavet/p%C3%A1gina-inicial" target="_blank" class="link-button bg-theme-accent hover:bg-theme-accent-darker hidden">
-             <i class="fas fa-globe"></i> Visitar Site
-         </a>
 
     </div>
 
@@ -377,7 +401,7 @@
                             a: "A acupuntura veterinária deve ser realizada exclusivamente por um médico-veterinário com formação específica e habilitação nesta área. É uma técnica que exige conhecimento aprofundado da anatomia, fisiologia e dos princípios da Medicina Tradicional Chinesa aplicada a animais."
                         },
                         {
-                            q: "A acupuntura substitui outros tratamentos?",
+                            q: "Acupuntura substitui outros tratamentos?",
                             a: "Não necessariamente. A acupuntura é uma ferramenta terapêutica que pode ser usada como tratamento principal ou, frequentemente, de forma complementar a outros tratamentos convencionais (medicamentos, fisioterapia, etc.), potencializando os resultados e promovendo o bem-estar animal."
                         }
                     ]
@@ -636,4 +660,3 @@
     </script>
 </body>
 </html>
-
