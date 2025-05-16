@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dra. Giovanna Paiva - Links</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         // Configuração personalizada do Tailwind para cores e fontes
@@ -182,7 +183,25 @@
         .chatbot-body {
             flex-grow: 1;
             overflow-y: auto; /* Adiciona scroll se o conteúdo for maior que a altura */
+            padding-right: 5px; /* Adiciona um pequeno padding para o scrollbar */
         }
+         /* Estilo para o scrollbar no Webkit (Chrome, Safari) */
+        .chatbot-body::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chatbot-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .chatbot-body::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .chatbot-body::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+
         .chatbot-topics-list,
         .chatbot-questions-list {
             list-style: none;
@@ -199,11 +218,19 @@
             transition: background-color 0.2s ease;
             font-weight: 500;
             color: #333;
+            display: flex; /* Para alinhar ícone e texto */
+            align-items: center; /* Para alinhar ícone e texto */
         }
         .chatbot-topics-list li:hover,
         .chatbot-questions-list li:hover {
             background-color: #ddd;
         }
+         .chatbot-topics-list li i,
+         .chatbot-questions-list li i {
+             margin-right: 10px; /* Espaço entre o ícone e o texto da lista */
+             color: #004777; /* Cor do ícone */
+         }
+
         .chatbot-answer {
             background-color: #f9f9f9;
             padding: 15px;
@@ -211,6 +238,7 @@
             border-left: 4px solid #004777; /* Cor primária */
             color: #333;
             line-height: 1.6;
+            margin-bottom: 15px; /* Espaço abaixo da resposta */
         }
         .chatbot-back-btn {
             display: block;
@@ -293,6 +321,7 @@
             topics: [
                 {
                     title: "Sobre Acupuntura Veterinária",
+                    icon: "fas fa-paw", // Ícone de pata
                     questions: [
                         {
                             q: "O que é Acupuntura Veterinária?",
@@ -346,6 +375,7 @@
                 },
                 {
                     title: "Sobre Pesquisa e Atuação Acadêmica",
+                    icon: "fas fa-flask", // Ícone de frasco (pesquisa)
                     questions: [
                         {
                             q: "Qual a área de pesquisa da Dra. Giovanna?",
@@ -375,6 +405,7 @@
                 },
                  {
                     title: "Pesquisa com Cannabis e Psicodélicos",
+                    icon: "fas fa-leaf", // Ícone de folha (sugestão para cannabis/plantas)
                     questions: [
                         {
                             q: "A Dra. Giovanna pesquisa o uso de cannabis/psicodélicos em animais?",
@@ -400,10 +431,11 @@
                 },
                 {
                     title: "Sobre Consultas e Serviços Gerais",
+                    icon: "fas fa-stethoscope", // Ícone de estetoscópio
                     questions: [
                         {
                             q: "Como faço para agendar uma consulta?",
-                            a: "Você pode agendar uma consulta entrando em contato via WhatsApp (link no botão acima) ou utilizando o Chat (botão acima) para falar com a equipe e verificar a disponibilidade."
+                            a: "Você pode agendar uma consulta entrando em contato via WhatsApp (link no botão acima) ou utilizando o Chat (botão acima) para falar com a equipe e verificar a disponibilidade. Você também pode encontrar informações e agendar pelo <a href='https://sites.google.com/view/giovannapaivavet/p%C3%A1gina-inicial' target='_blank' class='text-blue-600 hover:underline'>Site Oficial</a>." // Link para o site adicionado aqui
                         },
                         {
                             q: "Quais os horários de atendimento?",
@@ -508,7 +540,8 @@
             chatbotTopicsList.innerHTML = ''; // Limpa a lista atual
             chatbotData.topics.forEach((topic, index) => {
                 const li = document.createElement('li');
-                li.textContent = topic.title;
+                // Adiciona o ícone antes do texto do tópico
+                li.innerHTML = `<i class="${topic.icon}"></i> ${topic.title}`;
                 li.addEventListener('click', () => displayQuestions(index));
                 chatbotTopicsList.appendChild(li);
             });
@@ -542,7 +575,7 @@
         // Função para exibir a resposta de uma pergunta
         function displayAnswer(questionIndex) {
             const answer = currentTopic.questions[questionIndex].a;
-            chatbotAnswerDiv.innerHTML = `<p>${answer}</p>`; // Exibe a resposta em um parágrafo
+            chatbotAnswerDiv.innerHTML = `<p>${answer}</p>`; // Exibe a resposta em um parágrafo (permite HTML, como o link)
 
             chatbotTitle.textContent = currentTopic.questions[questionIndex].q; // Título vira a pergunta
             chatbotQuestionsList.style.display = 'none';
