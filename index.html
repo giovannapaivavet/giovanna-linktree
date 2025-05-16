@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Giovanna Paiva - Links</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuração personalizada do Tailwind para cores e fontes
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Cores da nova paleta com foco científico e elegância
+                        'theme-primary': '#004777', // Azul Profundo Acadêmico
+                        'theme-primary-darker': '#003355', // Azul mais escuro para hover
+                        'theme-secondary': '#F0EAD6', // Bege Claro (mantido para o fundo do body)
+                        'theme-accent': '#0A9396', // Teal Vibrante (para Visitar Site)
+                        'theme-accent-darker': '#097D80', // Teal mais escuro para hover
+
+                        // Cores específicas para botões com a nova paleta
+                        'whatsapp-btn': '#25D366', // Verde padrão do WhatsApp (mantido)
+                        'whatsapp-btn-darker': '#128C7E', // Tom de teal/verde mais escuro para hover (mantido)
+                        'chat-btn': '#4682B4', // Azul Médio Profissional (Steel Blue)
+                        'chat-btn-darker': '#3A6B8A', // Azul mais escuro para hover
+                        'instagram-btn': '#A66C8F', // Roxo/Ameixa Sóbrio (BlueViolet)
+                        'instagram-btn-darker': '#945B7E', // Roxo/Ameixa mais escuro para hover
+                        'email-btn': '#4F4F4F', // Cinza Escuro Profissional
+                        'email-btn-darker': '#333333', // Cinza mais escuro para hover
+                        'research-btn': '#1E3A8A', // Azul Marinho Profundo (para Sobre pesquisas)
+                        'research-btn-darker': '#152A60', // Azul Marinho mais escuro para hover
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'], // Fonte principal Inter
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos personalizados para o corpo e contêiner */
+        body {
+            background-color: #F0EAD6; /* Cor de fundo secundária */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px; /* Adiciona padding para telas menores */
+            box-sizing: border-box; /* Inclui padding na largura total */
+            font-family: 'Inter', sans-serif; /* Aplica a fonte Inter ao corpo */
+        }
+        .linktree-container {
+            width: 100%;
+            max-width: 400px; /* Largura máxima para o conteúdo em telas maiores */
+            text-align: center;
+            background-color: white; /* Fundo branco para o contêiner principal */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            position: relative; /* Necessário para o posicionamento absoluto do chatbot */
+            z-index: 1; /* Garante que o linktree fique abaixo do chatbot quando aberto */
+        }
+        /* Estilos para os botões de link - baseados na cor primária por padrão */
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #004777; /* Cor primária padrão (Azul Profundo) */
+            color: white;
+            font-weight: 600;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease; /* Adiciona transição para sombra */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            width: 100%; /* Garante que o botão ocupe a largura total do contêiner */
+            font-size: 1rem; /* Tamanho de fonte padrão para telas maiores */
+        }
+        .link-button:hover {
+            background-color: #003355; /* Cor primária mais escura no hover */
+            transform: translateY(-2px); /* Efeito de levantar */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra maior no hover */
+        }
+        .link-button i {
+            margin-right: 10px; /* Espaço entre o ícone e o texto */
+        }
+
+        /* Media Query para telas menores (ajuste conforme necessário) */
+        @media (max-width: 600px) {
+            .linktree-container {
+                padding: 20px; /* Ajusta padding para telas menores */
+            }
+            .link-button {
+                font-size: 0.9rem; /* Diminui o tamanho da fonte em telas menores */
+                padding: 12px 15px; /* Ajusta o padding para acomodar a fonte menor */
+            }
+             .link-button i {
+                margin-right: 8px; /* Reduz o espaço do ícone em telas menores */
+            }
+        }
+
+
+        /* Sobrescreve estilos de cor para botões específicos usando classes do Tailwind */
+        /* A cor padrão do .link-button será sobrescrita por essas classes */
+        .bg-whatsapp-btn { background-color: #25D366; }
+        .hover\:bg-whatsapp-btn-darker:hover { background-color: #128C7E; }
+
+        .bg-chat-btn { background-color: #4682B4; }
+        .hover\:bg-chat-btn-darker:hover { background-color: #3A6B8A; }
+
+        .bg-instagram-btn { background-color: #A66C8F; }
+        .hover\:bg-instagram-btn-darker:hover { background-color: #945B7E; }
+
+        .bg-email-btn { background-color: #4F4F4F; }
+        .hover\:bg-email-btn-darker:hover { background-color: #333333; }
+
+        .bg-research-btn { background-color: #1E3A8A; }
+        .hover\:bg-research-btn-darker:hover { background-color: #152A60; }
+
+        .bg-theme-accent { background-color: #0A9396; }
+        .hover\:bg-theme-accent-darker:hover { background-color: #097D80; }
+
+        /* Estilos para o Chatbot Modal */
+        .chatbot-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10; /* Acima de tudo */
+            visibility: hidden; /* Escondido por padrão */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .chatbot-modal-overlay.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+        .chatbot-modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh; /* Altura máxima para caber na tela */
+        }
+        .chatbot-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .chatbot-header h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .chatbot-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+            transition: color 0.2s ease;
+        }
+        .chatbot-close-btn:hover {
+            color: #333;
+        }
+        .chatbot-body {
+            flex-grow: 1;
+            overflow-y: auto; /* Adiciona scroll se o conteúdo for maior que a altura */
+        }
+        .chatbot-topics-list,
+        .chatbot-questions-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .chatbot-topics-list li,
+        .chatbot-questions-list li {
+            background-color: #eee;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            font-weight: 500;
+            color: #333;
+        }
+        .chatbot-topics-list li:hover,
+        .chatbot-questions-list li:hover {
+            background-color: #ddd;
+        }
+        .chatbot-answer {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #004777; /* Cor primária */
+            color: #333;
+            line-height: 1.6;
+        }
+        .chatbot-back-btn {
+            display: block;
+            margin-top: 15px;
+            background-color: #ccc;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .chatbot-back-btn:hover {
+            background-color: #bbb;
+        }
+         /* Esconde as listas de perguntas e respostas por padrão */
+        .chatbot-questions-list,
+        .chatbot-answer {
+            display: none;
+        }
+
+    </style>
+</head>
+<body class="font-sans">
+
+    <div class="linktree-container">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQG-m_odOakApQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730681482144?e=1752710400&v=beta&t=dTjtmF6ojZXuVG5Aa--O_xwTbJhACC6fRlxsiIhdyy8" alt="Foto de Perfil da Dra. Giovanna Paiva" class="rounded-full w-32 h-32 object-cover mx-auto mb-6 shadow-lg">
+
+        <h1 class="text-2xl font-bold text-gray-800 mb-2">Dra. Giovanna Paiva</h1>
+        <p class="text-gray-600 mb-8">Médica Veterinária | Acupuntura | Pesquisa</p>
+
+        <a href="https://wa.me/5581999513952" target="_blank" class="link-button bg-whatsapp-btn hover:bg-whatsapp-btn-darker">
+            <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+        </a>
+
+        <a href="#" id="open-chatbot-btn" class="link-button bg-chat-btn hover:bg-chat-btn-darker">
+            <i class="far fa-calendar-alt"></i> Pesquisas e Serviços
+        </a>
+
+        <a href="https://instagram.com/giovannavet" target="_blank" class="link-button bg-instagram-btn hover:bg-instagram-btn-darker">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+
+        <a href="mailto:giovannapaiva.vet@gmail.com" class="link-button bg-email-btn hover:bg-email-btn-darker">
+            <i class="far fa-envelope"></i> Enviar Email
+        </a>
+
+        <a href="http://lattes.cnpq.br/8429123900771171" target="_blank" class="link-button bg-research-btn hover:bg-research-btn-darker">
+            <i class="fas fa-graduation-cap"></i> Acesso Plataforma Lattes
+        </a>
+
+        <a href="https://sites.google.com/view/giovannapaivavet/p%C3%A1gina-inicial" target="_blank" class="link-button bg-theme-accent hover:bg-theme-accent-darker">
+             <i class="fas fa-globe"></i> Visitar Site
+         </a>
+
+    </div>
+
+    <div id="chatbot-modal-overlay" class="chatbot-modal-overlay">
+        <div class="chatbot-modal-content">
+            <div class="chatbot-header">
+                <h2 id="chatbot-title">Chatbot</h2>
+                <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
+            </div>
+            <div id="chatbot-body" class="chatbot-body">
+                <ul id="chatbot-topics-list" class="chatbot-topics-list">
+                    </ul>
+                <ul id="chatbot-questions-list" class="chatbot-questions-list">
+                    </ul>
+                <div id="chatbot-answer" class="chatbot-answer">
+                    </div>
+                <button id="chatbot-back-btn" class="chatbot-back-btn" style="display: none;">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Dados do Chatbot baseados nos tópicos definidos
+        const chatbotData = {
+            topics: [
+                {
+                    title: "Sobre Acupuntura Veterinária",
+                    questions: [
+                        {
+                            q: "O que é Acupuntura Veterinária?",
+                            a: "A Acupuntura Veterinária é uma técnica da Medicina Tradicional Chinesa que utiliza agulhas finas, calor ou pressão em pontos específicos do corpo do animal para promover a cura e o bem-estar. Ela busca reequilibrar a energia do corpo e estimular processos naturais de cura."
+                        },
+                         {
+                            q: "Como funciona a acupuntura em animais?",
+                            a: "A acupuntura estimula pontos que possuem alta concentração de terminações nervosas, vasos sanguíneos e mastócitos. Essa estimulação envia sinais ao sistema nervoso central, liberando neurotransmissores e neuro-hormônios que promovem alívio da dor, relaxamento muscular, melhora da circulação e modulação do sistema imunológico."
+                        },
+                         {
+                            q: "Quais os princípios por trás do tratamento?",
+                            a: "Baseia-se na teoria do Qi (energia vital) que flui pelo corpo através de canais (meridianos). Doenças ocorrem quando o fluxo de Qi é bloqueado ou desequilibrado. A acupuntura desbloqueia e regula esse fluxo, restaurando a saúde."
+                        },
+                        {
+                            q: "Quais problemas de saúde podem ser tratados com acupuntura?",
+                            a: "É eficaz para uma ampla gama de condições, incluindo dor crônica (artrite, problemas de coluna), paralisias, problemas neurológicos (sequelas de cinomose), distúrbios gastrointestinais, respiratórios, dermatológicos e até mesmo ansiedade e problemas comportamentais."
+                        },
+                        {
+                            q: "Ajuda na recuperação pós-cirúrgica?",
+                            a: "Sim, a acupuntura pode ser um excelente complemento no pós-operatório, ajudando a reduzir a dor, inflamação e acelerar a recuperação motora e funcional."
+                        },
+                        {
+                            q: "Pode ser usada em conjunto com outros tratamentos?",
+                            a: "Absolutamente. A acupuntura é uma terapia integrativa e pode ser usada em conjunto com a medicina veterinária convencional (medicamentos, cirurgia) e outras terapias como a fisioterapia, potencializando os resultados."
+                        },
+                        {
+                            q: "O animal sente dor durante as sessões?",
+                            a: "Geralmente não. As agulhas são muito finas e a maioria dos animais relaxa durante o tratamento. Alguns podem sentir um leve desconforto inicial em pontos mais sensíveis ou doloridos, mas é passageiro e leva ao relaxamento."
+                        },
+                         {
+                            q: "É um tratamento seguro? Existem efeitos colaterais?",
+                            a: "Quando realizada por um veterinário qualificado, a acupuntura é muito segura e possui poucos efeitos colaterais, geralmente leves e temporários (como sonolência ou leve sensibilidade no ponto)."
+                        },
+                        {
+                            q: "Todos os animais podem fazer acupuntura? Existe alguma contraindicação?",
+                            a: "A maioria dos animais pode se beneficiar da acupuntura, incluindo cães, gatos, cavalos, etc. Não há contraindicações absolutas, mas a avaliação individual pelo veterinário é essencial para determinar se é o tratamento mais adequado."
+                        },
+                        {
+                            q: "Quanto tempo dura uma sessão?",
+                            a: "Uma sessão típica dura entre 20 a 40 minutos, dependendo do animal e da condição a ser tratada."
+                        },
+                        {
+                            q: "Quantas sessões são geralmente necessárias?",
+                            a: "O número de sessões varia muito dependendo da condição (aguda ou crônica) e da resposta individual do animal. Condições agudas podem melhorar em poucas sessões, enquanto condições crônicas podem exigir tratamentos mais frequentes no início e depois sessões de manutenção."
+                        },
+                        {
+                            q: "Como saber se o tratamento está funcionando?",
+                            a: "Os sinais de melhora podem incluir redução da dor, aumento da mobilidade, melhora do apetite, mais disposição, diminuição da ansiedade, entre outros. A resposta é individual e observada ao longo das sessões."
+                        },
+                    ]
+                },
+                {
+                    title: "Sobre Pesquisa e Atuação Acadêmica",
+                    questions: [
+                        {
+                            q: "Qual a área de pesquisa da Dra. Giovanna?",
+                            a: "A Dra. Giovanna Paiva é pesquisadora na Universidade Federal da Paraíba (UFPB), com foco em áreas que integram a medicina veterinária, acupuntura e novas abordagens terapêuticas, incluindo pesquisas com substâncias como cannabis e psicodélicos no contexto da saúde animal."
+                        },
+                        {
+                            q: "O que é pesquisa em Medicina Veterinária?",
+                            a: "A pesquisa em Medicina Veterinária busca gerar novo conhecimento científico para melhorar a saúde e o bem-estar dos animais, desenvolver novas técnicas de diagnóstico e tratamento, entender doenças e contribuir para a saúde pública (saúde única)."
+                        },
+                        {
+                            q: "Por que a pesquisa é importante para a prática clínica?",
+                            a: "A pesquisa é fundamental! Ela embasa as decisões clínicas, valida a eficácia de tratamentos (como a acupuntura), identifica novas doenças e terapias, garantindo que os animais recebam o cuidado mais atualizado e baseado em evidências científicas."
+                        },
+                         {
+                            q: "Como a pesquisa beneficia os animais e a medicina veterinária?",
+                            a: "Beneficia diretamente ao trazer tratamentos mais eficazes e seguros, métodos de diagnóstico mais precisos e uma compreensão mais profunda das doenças. Para a medicina veterinária, impulsiona o avanço da área e a formação de profissionais mais qualificados."
+                        },
+                        {
+                            q: "Existem estudos ou projetos atuais que podem ser de interesse?",
+                            a: "A Dra. Giovanna está envolvida em diversas linhas de pesquisa em Medicina Veterinária na UFPB. Os projetos específicos podem variar, mas frequentemente envolvem estudos em clínica, cirurgia, reprodução, patologia, parasitologia e, na área da Dra. Giovanna, terapias integrativas e novas abordagens para condições neurológicas e comportamentais."
+                        },
+                        {
+                            q: "Como saber mais sobre as pesquisas da Dra. Giovanna?",
+                            a: "Você pode encontrar informações sobre as pesquisas da Dra. Giovanna em seu Currículo Lattes (link disponível nos botões) e, eventualmente, em publicações científicas e eventos da área."
+                        },
+                    ]
+                },
+                 {
+                    title: "Pesquisa com Cannabis e Psicodélicos",
+                    questions: [
+                        {
+                            q: "A Dra. Giovanna pesquisa o uso de cannabis/psicodélicos em animais?",
+                            a: "Sim, a Dra. Giovanna Paiva está envolvida em pesquisas pioneiras que exploram o potencial terapêutico de compostos como canabinoides e psicodélicos no tratamento de diversas condições em animais, especialmente aquelas relacionadas à saúde mental e neurológica."
+                        },
+                        {
+                            q: "Para quais condições esses estudos buscam tratamento?",
+                            a: "Os estudos buscam entender o potencial desses compostos no tratamento de condições como ansiedade, depressão, dor crônica, epilepsia e outros distúrbios neurológicos e comportamentais em animais."
+                        },
+                        {
+                            q: "Qual a evolução dessa pesquisa e o que se espera dos resultados?",
+                            a: "A pesquisa nessa área está em constante evolução. Estudos preliminares em humanos e animais sugerem que, em alguns casos, intervenções com psicodélicos, por exemplo, podem ter efeitos terapêuticos significativos e duradouros com poucas doses, ao contrário de tratamentos contínuos. A pesquisa busca validar esses achados, entender os mecanismos de ação e determinar a segurança e eficácia para uso veterinário."
+                        },
+                        {
+                            q: "Como funciona a pesquisa nessa área? É seguro para os animais envolvidos?",
+                            a: "A pesquisa é realizada seguindo rigorosos protocolos éticos e científicos, aprovados por comitês de ética no uso de animais. A segurança e o bem-estar dos animais são prioridade máxima. As substâncias são administradas em ambientes controlados e sob supervisão veterinária constante para monitorar qualquer efeito."
+                        },
+                        {
+                            q: "Onde posso encontrar mais informações sobre essas pesquisas?",
+                            a: "Informações detalhadas sobre as pesquisas são geralmente divulgadas em publicações científicas, congressos e no Currículo Lattes da Dra. Giovanna. É importante ressaltar que o uso terapêutico dessas substâncias em animais ainda está sob investigação e regulamentação."
+                        },
+                    ]
+                },
+                {
+                    title: "Sobre Consultas e Serviços Gerais",
+                    questions: [
+                        {
+                            q: "Como faço para agendar uma consulta?",
+                            a: "Você pode agendar uma consulta entrando em contato via WhatsApp (link no botão acima) ou utilizando o Chat (botão acima) para falar com a equipe e verificar a disponibilidade."
+                        },
+                        {
+                            q: "Quais os horários de atendimento?",
+                            a: "Os horários de atendimento podem variar. Por favor, entre em contato via WhatsApp ou Chat para verificar a disponibilidade e agendar o melhor horário para você e seu pet."
+                        },
+                        {
+                            q: "É necessário agendar com antecedência?",
+                            a: "Sim, o agendamento prévio é necessário para garantir que a Dra. Giovanna possa dedicar o tempo adequado à consulta do seu pet."
+                        },
+                         {
+                            q: "O que devo levar na primeira consulta?",
+                            a: "É útil trazer o histórico de saúde do seu pet (carteira de vacinação, exames anteriores, lista de medicamentos que ele toma) e estar preparado para descrever os sintomas ou o motivo da consulta."
+                        },
+                        {
+                            q: "Quanto tempo dura a consulta?",
+                            a: "A duração da consulta pode variar dependendo da complexidade do caso, mas geralmente reservamos um tempo adequado para uma avaliação completa e discussão com o tutor."
+                        },
+                        {
+                            q: "Quais informações são importantes compartilhar com a Dra. Giovanna?",
+                            a: "Compartilhe o máximo de detalhes possível sobre o histórico de saúde do seu pet, incluindo mudanças de comportamento, apetite, nível de atividade, histórico de doenças, tratamentos anteriores e qualquer outra observação que considere relevante."
+                        },
+                         {
+                            q: "Quais serviços a Dra. Giovanna oferece além da acupuntura?",
+                            a: "A Dra. Giovanna é Médica Veterinária e especialista em Acupuntura. Seus serviços são focados nesta área, mas ela possui conhecimento em medicina veterinária geral e pode orientar sobre a necessidade de outros especialistas ou exames."
+                        },
+                        {
+                            q: "Ela atende a domicílio?",
+                            a: "Por favor, entre em contato via WhatsApp ou Chat para verificar a possibilidade de atendimento a domicílio, pois isso pode depender da localização e da condição do animal."
+                        },
+                        {
+                            q: "Dúvidas básicas sobre vacinação?",
+                            a: "A vacinação é essencial para proteger seu pet contra doenças graves. O protocolo de vacinação varia de acordo com a espécie, idade e estilo de vida do animal. Consulte um veterinário para um calendário de vacinação adequado."
+                        },
+                         {
+                            q: "Dúvidas básicas sobre alimentação?",
+                            a: "Uma dieta balanceada é crucial para a saúde do seu pet. A escolha da ração ou tipo de alimentação (natural, caseira) deve considerar a idade, raça, porte e condição de saúde do animal. Consulte um veterinário ou zootecnista para orientação nutricional personalizada."
+                        },
+                        {
+                            q: "Sinais comuns de que algo não está bem com o pet?",
+                            a: "Fique atento a mudanças no comportamento (apatia, agressividade), apetite (falta ou excesso), consumo de água, alterações nas fezes ou urina, vômitos, tosse, espirros, dificuldade de locomoção, coceira excessiva ou qualquer sinal incomum. Em caso de dúvida, procure um veterinário."
+                        },
+                        // Novas perguntas sobre cuidados gerais com pets
+                        {
+                            q: "Quando devo vacinar meu pet?",
+                            a: "A vacinação é fundamental para prevenir doenças graves. O calendário de vacinação varia de acordo com a espécie (cão, gato, etc.), idade e histórico de saúde do animal. Filhotes geralmente iniciam a vacinação por volta de 6-8 semanas de vida, com reforços. O veterinário irá indicar o protocolo mais adequado."
+                        },
+                        {
+                            q: "Com que frequência devo desparasitar meu pet?",
+                            a: "A frequência da desparasitação (vermifugação e controle de pulgas/carrapatos) depende de fatores como a idade do animal, estilo de vida (se tem acesso à rua, contato com outros animais) e a prevalência de parasitas na sua região. O veterinário poderá recomendar um cronograma personalizado."
+                        },
+                        {
+                            q: "Quais os benefícios da castração e quando devo castrar meu pet?",
+                            a: "A castração oferece diversos benefícios à saúde e comportamento do pet, como a prevenção de doenças reprodutivas (câncer de mama, piometra em fêmeas; problemas de próstata em machos) e a redução de comportamentos indesejados (marcação territorial, fugas). A idade ideal para a castração varia e deve ser discutida com o veterinário, considerando a espécie, raça e tamanho do animal."
+                        },
+                        {
+                            q: "Como cuidar da higiene do meu pet (banho, dentes)?",
+                            a: "A frequência de banhos varia conforme a raça, tipo de pelo e estilo de vida. Banhos em excesso podem remover a proteção natural da pele. A higiene oral é crucial para prevenir doenças dentárias; a escovação regular com produtos específicos para pets é recomendada. O veterinário pode orientar sobre a melhor rotina de higiene para o seu animal."
+                        },
+                        {
+                            q: "Quais os sinais de uma emergência veterinária?",
+                            a: "Procure atendimento veterinário imediato se seu pet apresentar dificuldade respiratória, sangramento intenso, convulsões, desmaios, vômitos ou diarreia persistentes, dificuldade para urinar, inchaço abdominal repentino, ingestão de substâncias tóxicas ou qualquer sinal grave que cause preocupação. Em caso de dúvida, é sempre melhor buscar orientação profissional."
+                        },
+                    ]
+                }
+            ]
+        };
+
+        const openChatbotBtn = document.getElementById('open-chatbot-btn');
+        const chatbotModalOverlay = document.getElementById('chatbot-modal-overlay');
+        const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
+        const chatbotTitle = document.getElementById('chatbot-title');
+        const chatbotBody = document.getElementById('chatbot-body');
+        const chatbotTopicsList = document.getElementById('chatbot-topics-list');
+        const chatbotQuestionsList = document.getElementById('chatbot-questions-list');
+        const chatbotAnswerDiv = document.getElementById('chatbot-answer');
+        const chatbotBackBtn = document.getElementById('chatbot-back-btn');
+
+        let currentTopic = null;
+
+        // Função para abrir o chatbot
+        function openChatbot() {
+            chatbotModalOverlay.classList.add('visible');
+            displayTopics();
+        }
+
+        // Função para fechar o chatbot
+        function closeChatbot() {
+            chatbotModalOverlay.classList.remove('visible');
+            // Resetar para a visualização inicial ao fechar
+            currentTopic = null;
+            chatbotTitle.textContent = 'Chatbot';
+            chatbotTopicsList.style.display = 'block';
+            chatbotQuestionsList.style.display = 'none';
+            chatbotAnswerDiv.style.display = 'none';
+            chatbotBackBtn.style.display = 'none';
+            chatbotQuestionsList.innerHTML = ''; // Limpa as perguntas
+            chatbotAnswerDiv.innerHTML = ''; // Limpa a resposta
+        }
+
+        // Função para exibir os tópicos principais
+        function displayTopics() {
+            chatbotTopicsList.innerHTML = ''; // Limpa a lista atual
+            chatbotData.topics.forEach((topic, index) => {
+                const li = document.createElement('li');
+                li.textContent = topic.title;
+                li.addEventListener('click', () => displayQuestions(index));
+                chatbotTopicsList.appendChild(li);
+            });
+
+            chatbotTitle.textContent = 'Chatbot';
+            chatbotTopicsList.style.display = 'block';
+            chatbotQuestionsList.style.display = 'none';
+            chatbotAnswerDiv.style.display = 'none';
+            chatbotBackBtn.style.display = 'none';
+        }
+
+        // Função para exibir as perguntas de um tópico
+        function displayQuestions(topicIndex) {
+            currentTopic = chatbotData.topics[topicIndex];
+            chatbotQuestionsList.innerHTML = ''; // Limpa a lista atual
+
+            currentTopic.questions.forEach((question, index) => {
+                const li = document.createElement('li');
+                li.textContent = question.q;
+                li.addEventListener('click', () => displayAnswer(index));
+                chatbotQuestionsList.appendChild(li);
+            });
+
+            chatbotTitle.textContent = currentTopic.title;
+            chatbotTopicsList.style.display = 'none';
+            chatbotQuestionsList.style.display = 'block';
+            chatbotAnswerDiv.style.display = 'none';
+            chatbotBackBtn.style.display = 'block'; // Mostra o botão Voltar
+        }
+
+        // Função para exibir a resposta de uma pergunta
+        function displayAnswer(questionIndex) {
+            const answer = currentTopic.questions[questionIndex].a;
+            chatbotAnswerDiv.innerHTML = `<p>${answer}</p>`; // Exibe a resposta em um parágrafo
+
+            chatbotTitle.textContent = currentTopic.questions[questionIndex].q; // Título vira a pergunta
+            chatbotQuestionsList.style.display = 'none';
+            chatbotAnswerDiv.style.display = 'block';
+            chatbotBackBtn.style.display = 'block'; // Mantém o botão Voltar
+        }
+
+        // Event Listeners
+        openChatbotBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Previne o comportamento padrão do link
+            openChatbot();
+        });
+
+        chatbotCloseBtn.addEventListener('click', closeChatbot);
+
+        chatbotModalOverlay.addEventListener('click', (e) => {
+            // Fecha o modal se clicar fora do conteúdo
+            if (e.target === chatbotModalOverlay) {
+                closeChatbot();
+            }
+        });
+
+        chatbotBackBtn.addEventListener('click', () => {
+            if (chatbotAnswerDiv.style.display === 'block') {
+                // Se estiver na resposta, volta para a lista de perguntas
+                displayQuestions(chatbotData.topics.indexOf(currentTopic));
+            } else if (chatbotQuestionsList.style.display === 'block') {
+                // Se estiver na lista de perguntas, volta para a lista de tópicos
+                displayTopics();
+            }
+        });
+
+        // Inicializa o chatbot (opcional, pode ser útil para testar)
+        // displayTopics();
+
+    </script>
+</body>
+</html>
