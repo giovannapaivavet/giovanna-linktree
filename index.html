@@ -138,7 +138,7 @@
              background: linear-gradient(to right, #005F73, #003F5C);
          }
           .research-page-gradient:hover {
-              background: linear-gradient(to right, #003F5C, #005F73);
+              background: linear-gradient(to right, #003F5C, #007F9C); /* Ajuste de cor no hover */
           }
 
          /* Gradiente para o botão Visitar Site Completo */
@@ -318,17 +318,12 @@
             <i class="fab fa-whatsapp"></i> Contato via WhatsApp
         </a>
 
-        <a href="[URL_DO_NOVO_SITE]" target="_blank" class="link-button visit-site-gradient">
+        <a href="https://giovannapaivavet.github.io/giovanna-vet-site/" target="_blank" class="link-button visit-site-gradient">
              <i class="fas fa-globe"></i> Visitar Site Completo
          </a>
 
-        <a href="[URL_DO_NOVO_SITE]/giovanna_research_page_02.html" target="_blank" class="link-button research-page-gradient">
-             <i class="fas fa-flask"></i> Sobre Minhas Pesquisas
-         </a>
-
-
         <a href="#" id="open-chatbot-btn" class="link-button chat-gradient">
-            <i class="far fa-calendar-alt"></i> Perguntas Frequentes
+            <i class="far fa-calendar-alt"></i> Sobre pesquisas e Serviços
         </a>
 
         <a href="https://instagram.com/giovannavet" target="_blank" class="link-button instagram-gradient">
@@ -470,6 +465,24 @@
                         },
                     ]
                 },
+                 {
+                    title: "Publicações e Produção Acadêmica", // Novo tópico para publicações
+                    icon: "fas fa-book-open", // Ícone sugerido para publicações
+                    questions: [
+                        {
+                            q: "O que são Publicações e Produção Acadêmica?",
+                            a: "Minha atuação na pesquisa e academia resulta em publicações e apresentações em eventos científicos. Você pode explorar alguns dos temas e acessar meu currículo completo."
+                        },
+                        {
+                            q: "Quais são os temas das suas publicações?",
+                            a: "Alguns dos temas incluem: Efeitos da Acupuntura na Qualidade Seminal em Cães (Resumo do trabalho apresentado em congresso) e Avaliação de Farmacopuntura em Equinos (Detalhes sobre o estudo com Xilazina e Detomidina no acuponto VG1). Meu currículo Lattes detalha mais a fundo essa produção."
+                        },
+                        {
+                            q: "Onde posso ver meu currículo completo?",
+                            a: "Você pode acessar meu currículo completo na Plataforma Lattes através do botão 'Acesso Plataforma Lattes' na página principal do linktree."
+                        }
+                    ]
+                },
                 {
                     title: "Sobre Consultas e Serviços Gerais",
                     icon: "fas fa-stethoscope", // Ícone de estetoscópio
@@ -547,6 +560,10 @@
         // Reordenar os tópicos: Mover "Sobre Cannabinoides Medicinais" (índice 2 na lista original) para a posição 1.
         const cannabinoidTopic = chatbotData.topics.splice(2, 1)[0]; // Remove o tópico e o armazena
         chatbotData.topics.splice(1, 0, cannabinoidTopic); // Insere o tópico na posição 1
+
+        // Reordenar os tópicos: Mover "Publicações e Produção Acadêmica" (novo tópico, índice 3 na lista atual) para a posição 2
+         const publicationsTopic = chatbotData.topics.splice(3, 1)[0]; // Remove o tópico e o armazena
+         chatbotData.topics.splice(2, 0, publicationsTopic); // Insere o tópico na posição 2
 
 
         const openChatbotBtn = document.getElementById('open-chatbot-btn');
